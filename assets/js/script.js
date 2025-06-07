@@ -5,6 +5,7 @@ const kmNumber = document.getElementById("travelKM");
 const userAge = document.getElementById("ageSelect");
 const wagon = Math.floor(Math.random() * (12 + 1));
 const cp_code = Math.floor(Math.random() * (99999 + 1));
+const buy_confirm_img = document.getElementById("buy_img");
 
 //verifica log variabili
 
@@ -62,4 +63,7 @@ formEl.addEventListener("submit", (e) => {
     final_price.innerText = ticket_price;
     console.log("Costo del biglietto: ", ticket_price.toFixed(2));
   }
+
+  buyMessage.innerText = " Biglietto acquistato";
+  buy_confirm_img.classList.toggle("d-none");
 });
