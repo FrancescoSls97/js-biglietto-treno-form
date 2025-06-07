@@ -24,6 +24,12 @@ formEl.addEventListener("submit", (e) => {
 
   console.log(userInput, kmInput, ageInput);
 
+  // dati biglietto //
+
+  userName.innerText = user.value;
+  wagon_number.innerText = wagon;
+  cp.innerText = cp_code;
+
   //definizione offerta
   if (userAge.value === "0-17 anni (Bambino)") {
     console.log("Sconto under18");
@@ -38,13 +44,22 @@ formEl.addEventListener("submit", (e) => {
 
   //calcolo costo del biglietto
 
-  const price = kmNumber * 0.21;
-  const discount18 = 20;
-  const discount65 = 40;
+  const price_per_km = 0.21;
+  let ticket_price = kmNumber.value * price_per_km;
+  const u18_discount = 0.8;
+  const o65_discount = 0.6;
 
-  // dati biglietto //
-
-  userName.innerText = user.value;
-  wagon_number.innerText = wagon;
-  cp.innerText = cp_code;
+  if (userAge.value === "0-17 anni (Bambino)") {
+    ticket_price = ticket_price * u18_discount;
+    final_price.innerText = ticket_price;
+    console.log("Costo del biglietto: ", ticket_price.toFixed(2));
+  } else if (userAge.value === "65+ anni (Anziano)") {
+    ticket_price = ticket_price * o65_discount;
+    final_price.innerText = ticket_price;
+    console.log("Costo del biglietto: ", ticket_price.toFixed(2));
+  } else if (userAge.value === "18-64 anni (Adulto)") {
+    ticket_price = ticket_price;
+    final_price.innerText = ticket_price;
+    console.log("Costo del biglietto: ", ticket_price.toFixed(2));
+  }
 });
