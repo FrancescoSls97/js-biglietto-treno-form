@@ -52,15 +52,15 @@ formEl.addEventListener("submit", (e) => {
 
   if (userAge.value === "0-17 anni (Bambino)") {
     ticket_price = ticket_price * u18_discount;
-    final_price.innerText = ticket_price;
+    final_price.innerText = ticket_price.toFixed(2);
     console.log("Costo del biglietto: ", ticket_price.toFixed(2));
   } else if (userAge.value === "65+ anni (Anziano)") {
     ticket_price = ticket_price * o65_discount;
-    final_price.innerText = ticket_price;
+    final_price.innerText = ticket_price.toFixed(2);
     console.log("Costo del biglietto: ", ticket_price.toFixed(2));
   } else if (userAge.value === "18-64 anni (Adulto)") {
     ticket_price = ticket_price;
-    final_price.innerText = ticket_price;
+    final_price.innerText = ticket_price.toFixed(2);
     console.log("Costo del biglietto: ", ticket_price.toFixed(2));
   }
 
